@@ -78,4 +78,4 @@ jobs:
           git commit -m "$COMMIT_MESSAGE" -m "Triggered by commit: $LAST_COMMIT_MESSAGE"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
