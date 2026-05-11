@@ -59,7 +59,7 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
           # Stage all potential changes
-          git add config.json content/*.md static/feed.xml
+          git add config.json static/feed.xml content/ || true
           
           # See if there is anything to commit
           if git diff --staged --quiet; then
