@@ -49,8 +49,6 @@ def main():
     feed_link = config.get('feedLink', '')
 
     # --- Process all .txt files in manuscripts directory ---
-    # The workflow is triggered by changes in this dir, so we process all
-    # files to ensure consistency.
     for filename in os.listdir(MANUSCRIPTS_DIR):
         if not filename.endswith('.txt'):
             continue
@@ -97,7 +95,7 @@ def main():
 
     all_chapters = []
     for md_file in sorted(os.listdir(CONTENT_DIR)):
-        if not md_file.endswith('.md'):
+        if not md_file.endswith('.md') or md_file == 'README.md':
             continue
             
         md_path = os.path.join(CONTENT_DIR, md_file)
@@ -126,6 +124,26 @@ def main():
         fe.content(chapter['content'], type='html')
         # Use file modification time for the update timestamp
         fe.updated(datetime.fromtimestamp(os.path.getmtime(chapter['path']), tz=timezone.utc))
+
+    # --- Update content/README.md with chapter list ---
+    readme_path = os.path.join(CONTENT_DIR, 'README.md')
+    if os.path.exists(readme_path):
+        with open(readme_path, 'r', encoding='utf-8') as f:
+            original_readme = f.read()
+        # Remove any previously auto-generated chapter list (from ## 目录 onwards)
+        original_readme = re.split(r'\n## 目录\s*\n', original_readme)[0].rstrip()
+        # Build new chapter list
+        chapter_links = []
+        for chapter in sorted(all_chapters, key=lambda x: x['id']):
+            link = f"- [{chapter['title']}](/content/{chapter['filename']})"
+            chapter_links.append(link)
+        if chapter_links:
+            new_readme = original_readme + "\n\n## 目录\n\n" + "\n".join(chapter_links) + "\n"
+        else:
+            new_readme = original_readme
+        with open(readme_path, 'w', encoding='utf-8') as f:
+            f.write(new_readme)
+        print(f"Updated {readme_path} with chapter list.")
 
     fg.atom_file(FEED_FILE, pretty=True)
     print(f"Generated feed at '{FEED_FILE}'")
