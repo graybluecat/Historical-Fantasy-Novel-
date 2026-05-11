@@ -76,6 +76,6 @@ jobs:
           fi
 
           git commit -m "$COMMIT_MESSAGE" -m "Triggered by commit: $LAST_COMMIT_MESSAGE"
-          git push
+          git push origin HEAD:main
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
