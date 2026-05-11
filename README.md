@@ -25,3 +25,8 @@
 
 ---
 
+
+
+---
+
+[Subscribe to our RSS Feed](https://graybluecat.github.io/Historical-Fantasy-Novel-/static/feed.xml)
