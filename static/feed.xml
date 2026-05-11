@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
   <id>https://graybluecat.github.io/Historical-Fantasy-Novel-</id>
-  <title>在此处填写您的作品标题</title>
-  <updated>2026-05-11T05:35:50.099795+00:00</updated>
+  <title>最后的鸣枢</title>
+  <updated>2026-05-11T06:07:27.628368+00:00</updated>
   <author>
-    <name>在此处填写您的作者名</name>
+    <name>灰蓝的猫</name>
   </author>
   <link href="https://graybluecat.github.io/Historical-Fantasy-Novel-" rel="alternate"/>
   <link href="https://graybluecat.github.io/Historical-Fantasy-Novel-/static/feed.xml" rel="self"/>
   <generator uri="https://lkiesow.github.io/python-feedgen" version="1.0.0">python-feedgen</generator>
-  <subtitle>The latest chapters of 在此处填写您的作品标题.</subtitle>
+  <subtitle>The latest chapters of 最后的鸣枢.</subtitle>
   <entry>
     <id>https://graybluecat.github.io/Historical-Fantasy-Novel-/content/00000002-最后的鸣枢序章.md</id>
     <title>最后的鸣枢序章</title>
-    <updated>2026-05-11T05:35:50.099774+00:00</updated>
+    <updated>2026-05-11T06:07:27.628335+00:00</updated>
     <content type="html"># 最后的鸣枢序章
 
 &lt;p&gt;序章&lt;/p&gt;
